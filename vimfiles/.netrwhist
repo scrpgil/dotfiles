@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/scrp/.vim'
+let g:netrw_dirhist_2='/Users/scrp/workspace/aahub/aabako/src/helpers'
+let g:netrw_dirhist_3='/Users/scrp/dotfiles/vimfiles'
+let g:netrw_dirhist_4='/Users/scrp/dotfiles/vimfiles/colors'
+let g:netrw_dirhist_5='/Users/scrp/.vim'
