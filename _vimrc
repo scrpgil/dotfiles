@@ -9,6 +9,7 @@ set softtabstop=2
 set autoindent
 set smartindent
 set clipboard=unnamed
+set autochdir
 
 syntax on
 set incsearch
