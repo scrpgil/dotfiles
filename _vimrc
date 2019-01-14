@@ -64,7 +64,7 @@ endif
 
 filetype plugin indent on
 
-nnoremap <silent><C-e> :VimFiler -split -winwidth=35 -toggle -no-quit <CR>
+nnoremap <silent><C-e> :VimFiler -simple -split -winwidth=35 -toggle -no-quit <CR>
 " nnoremap <C-f> :VimFilerCurrentDir<CR>
 
 let g:vimfiler_as_default_explorer = 1
