@@ -47,6 +47,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('prettier/vim-prettier')
   call dein#add('leafgarland/typescript-vim')
   call dein#add('othree/yajs.vim')
+  call dein#add('tokorom/vim-review')
 
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
@@ -136,3 +137,8 @@ set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
 let g:jsx_ext_required = 0
 let g:jsx_pragma_required = 1
+
+
+" RE:VIEW
+let g:vim_review#include_filetypes = ['typescript', 'scss', 'javasript', 'json']
+
