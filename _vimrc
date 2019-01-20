@@ -1,4 +1,6 @@
 set nu
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1
 colorscheme hybrid
 set nocompatible
 set laststatus=2
@@ -11,21 +13,25 @@ set smartindent
 set clipboard=unnamed
 set autochdir
 
-syntax on
 set incsearch
 set ignorecase
 set hlsearch
+set incsearch
+set ignorecase
+set ruler
+set guitablabel=%t
 
 let mapleader = "p"
 
 set backspace=indent,eol,start
-inoremap <silent> jj <ESC>
+syntax on
 
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-n> <Left>
 inoremap <C-l> <Right>
 
+set background=dark
 set encoding=utf-8
 set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,eucjp-jisx0213,euc-jp,sjis,cp932
 
@@ -43,9 +49,12 @@ if dein#load_state('~/.cache/dein')
   call dein#add('Shougo/defx.nvim')
   call dein#add('mattn/emmet-vim')
   call dein#add('fatih/vim-go')
+  call dein#add('hail2u/vim-css3-syntax')
+  call dein#add('pangloss/vim-javascript')
   call dein#add('vim-jp/vim-go-extra')
   call dein#add('prettier/vim-prettier')
   call dein#add('leafgarland/typescript-vim')
+  call dein#add('mxw/vim-jsx')
   call dein#add('othree/yajs.vim')
   call dein#add('tokorom/vim-review')
 
