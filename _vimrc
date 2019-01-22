@@ -12,6 +12,7 @@ set autoindent
 set smartindent
 set clipboard=unnamed
 set autochdir
+set t_Co=256
 
 set incsearch
 set ignorecase
@@ -19,7 +20,9 @@ set hlsearch
 set incsearch
 set ignorecase
 set ruler
-set guitablabel=%t
+set guitablabel=\[%N\]\ %t\ %M
+set list
+set listchars=tab:>-,trail:_
 
 let mapleader = "p"
 
