@@ -154,3 +154,7 @@ let g:jsx_pragma_required = 1
 " RE:VIEW
 let g:vim_review#include_filetypes = ['typescript', 'scss', 'javasript', 'json']
 
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+
