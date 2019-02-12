@@ -25,6 +25,7 @@ set list
 set listchars=tab:>-,trail:_
 
 let mapleader = "p"
+imap <C-c> <esc>
 
 set backspace=indent,eol,start
 syntax on
@@ -60,6 +61,10 @@ if dein#load_state('~/.cache/dein')
   call dein#add('mxw/vim-jsx')
   call dein#add('othree/yajs.vim')
   call dein#add('tokorom/vim-review')
+  call dein#add('godlygeek/tabular')
+  call dein#add('plasticboy/vim-markdown')
+  call dein#add('kannokanno/previm')
+
 
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
@@ -151,10 +156,16 @@ let g:jsx_ext_required = 0
 let g:jsx_pragma_required = 1
 
 
-" RE:VIEW
+" RE:VIEW関連
 let g:vim_review#include_filetypes = ['typescript', 'scss', 'javasript', 'json']
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 
+let g:ale_fixers = {
+\   'review': ['redpen', 'prhreview'],
+\}
+
+" previm関連
+let g:previm_open_cmd = 'open -a  /Applications/Google\ Chrome.app'
