@@ -64,6 +64,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('godlygeek/tabular')
   call dein#add('plasticboy/vim-markdown')
   call dein#add('kannokanno/previm')
+  call dein#add('Quramy/tsuquyomi')
 
 
   if !has('nvim')
@@ -169,3 +170,8 @@ let g:ale_fixers = {
 
 " previm関連
 let g:previm_open_cmd = 'open -a  /Applications/Google\ Chrome.app'
+
+" tsuquyomi関連
+let g:tsuquyomi_completion_detail = 1
+autocmd FileType typescript setlocal completeopt+=menu,preview
+
