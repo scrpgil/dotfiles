@@ -1,4 +1,6 @@
 set nu
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1
 colorscheme hybrid
 set nocompatible
 set laststatus=2
@@ -9,22 +11,30 @@ set softtabstop=2
 set autoindent
 set smartindent
 set clipboard=unnamed
+set t_Co=256
 
-syntax on
 set incsearch
 set ignorecase
 set hlsearch
+set incsearch
+set ignorecase
+set ruler
+set guitablabel=\[%N\]\ %t\ %M
+set list
+set listchars=tab:>-,trail:_
 
 let mapleader = "p"
+imap <C-c> <esc>
 
 set backspace=indent,eol,start
-inoremap <silent> jj <ESC>
+syntax on
 
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-n> <Left>
 inoremap <C-l> <Right>
 
+set background=dark
 set encoding=utf-8
 set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,eucjp-jisx0213,euc-jp,sjis,cp932
 
@@ -42,10 +52,19 @@ if dein#load_state('~/.cache/dein')
   call dein#add('Shougo/defx.nvim')
   call dein#add('mattn/emmet-vim')
   call dein#add('fatih/vim-go')
+  call dein#add('hail2u/vim-css3-syntax')
+  call dein#add('pangloss/vim-javascript')
   call dein#add('vim-jp/vim-go-extra')
   call dein#add('prettier/vim-prettier')
   call dein#add('leafgarland/typescript-vim')
+  call dein#add('mxw/vim-jsx')
   call dein#add('othree/yajs.vim')
+  call dein#add('tokorom/vim-review')
+  call dein#add('godlygeek/tabular')
+  call dein#add('plasticboy/vim-markdown')
+  call dein#add('kannokanno/previm')
+  call dein#add('Quramy/tsuquyomi')
+
 
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
@@ -135,3 +154,23 @@ set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
 let g:jsx_ext_required = 0
 let g:jsx_pragma_required = 1
+
+
+" RE:VIEW関連
+let g:vim_review#include_filetypes = ['typescript', 'scss', 'javasript', 'json']
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+
+let g:ale_fixers = {
+\   'review': ['redpen', 'prhreview'],
+\}
+
+" previm関連
+let g:previm_open_cmd = 'open -a  /Applications/Google\ Chrome.app'
+
+" tsuquyomi関連
+let g:tsuquyomi_completion_detail = 1
+autocmd FileType typescript setlocal completeopt+=menu,preview
+
