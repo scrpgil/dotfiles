@@ -162,9 +162,6 @@ let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 
-let g:ale_fixers = {
-\   'review': ['redpen', 'prhreview'],
-\}
 
 " previm関連
 let g:previm_open_cmd = 'open -a  /Applications/Google\ Chrome.app'
