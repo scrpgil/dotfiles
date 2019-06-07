@@ -147,13 +147,11 @@ nnoremap <silent><C-e> :Defx -split=vertical -winwidth=40 -auto-cd -direction=to
 let g:user_emmet_leader_key='<c-l>'
 let g:user_emmet_expandabbr_key='<c-e>'
 
-
 autocmd FileType json cnoremap jq :%!jq '.'
 set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
 let g:jsx_ext_required = 0
 let g:jsx_pragma_required = 1
-
 
 " RE:VIEW関連
 let g:vim_review#include_filetypes = ['typescript', 'scss', 'javasript', 'json']
@@ -162,11 +160,9 @@ let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 
-
 " previm関連
 let g:previm_open_cmd = 'open -a  /Applications/Google\ Chrome.app'
 
 " tsuquyomi関連
 let g:tsuquyomi_completion_detail = 1
 autocmd FileType typescript setlocal completeopt+=menu,preview
-
