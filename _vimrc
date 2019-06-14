@@ -10,7 +10,6 @@ set autoindent
 set smartindent
 set clipboard=unnamed
 set t_Co=256
-
 set incsearch
 set ignorecase
 set hlsearch
