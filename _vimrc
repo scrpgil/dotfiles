@@ -1,6 +1,4 @@
 set nu
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1
 colorscheme hybrid
 set nocompatible
 set laststatus=2
@@ -11,9 +9,7 @@ set softtabstop=2
 set autoindent
 set smartindent
 set clipboard=unnamed
-set autochdir
 set t_Co=256
-
 set incsearch
 set ignorecase
 set hlsearch
@@ -25,6 +21,7 @@ set list
 set listchars=tab:>-,trail:_
 
 let mapleader = "p"
+imap <C-c> <esc>
 
 set backspace=indent,eol,start
 syntax on
@@ -41,7 +38,7 @@ set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,eucjp-jisx021
 if &compatible
   set nocompatible
 endif
-" Add the dein installation directory into runtimepath
+
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state('~/.cache/dein')
@@ -56,10 +53,16 @@ if dein#load_state('~/.cache/dein')
   call dein#add('pangloss/vim-javascript')
   call dein#add('vim-jp/vim-go-extra')
   call dein#add('prettier/vim-prettier')
+  call dein#add('tpope/vim-rails')
   call dein#add('leafgarland/typescript-vim')
   call dein#add('mxw/vim-jsx')
   call dein#add('othree/yajs.vim')
   call dein#add('tokorom/vim-review')
+  call dein#add('godlygeek/tabular')
+  call dein#add('plasticboy/vim-markdown')
+  call dein#add('kannokanno/previm')
+  call dein#add('Quramy/tsuquyomi')
+
 
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
@@ -143,7 +146,6 @@ nnoremap <silent><C-e> :Defx -split=vertical -winwidth=40 -auto-cd -direction=to
 let g:user_emmet_leader_key='<c-l>'
 let g:user_emmet_expandabbr_key='<c-e>'
 
-
 autocmd FileType json cnoremap jq :%!jq '.'
 set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
@@ -153,3 +155,13 @@ let g:jsx_pragma_required = 1
 " RE:VIEW
 let g:vim_review#include_filetypes = ['typescript', 'scss', 'javasript', 'json']
 
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+
+" previm関連
+let g:previm_open_cmd = 'open -a  /Applications/Google\ Chrome.app'
+
+" tsuquyomi関連
+let g:tsuquyomi_completion_detail = 1
+autocmd FileType typescript setlocal completeopt+=menu,preview
