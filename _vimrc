@@ -50,6 +50,9 @@ if dein#load_state('~/.cache/dein')
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('Shougo/defx.nvim')
+  call dein#add('kristijanhusak/defx-icons')
+  call dein#add('kristijanhusak/defx-git')
+  call dein#add('ryanoasis/vim-devicons')
   call dein#add('mattn/emmet-vim')
   call dein#add('fatih/vim-go')
   call dein#add('hail2u/vim-css3-syntax')
@@ -80,6 +83,7 @@ if dein#check_install()
 endif
 
 filetype plugin indent on
+
 
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
@@ -143,7 +147,11 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> cd
         \ defx#do_action('change_vim_cwd')
 endfunction
-nnoremap <silent><C-e> :Defx -split=vertical -winwidth=40 -auto-cd -direction=topleft -toggle <CR>
+
+nnoremap <silent><C-e> :Defx -listed -resume -toggle -buffer-name=tab`tabpagenr()` -split=vertical -winwidth=40 <CR> :set nu <CR>
+call defx#custom#option('_', {
+      \ 'columns': 'icons:filename',
+      \ })
 
 let g:user_emmet_leader_key='<c-l>'
 let g:user_emmet_expandabbr_key='<c-e>'
