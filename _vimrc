@@ -151,6 +151,7 @@ autocmd FileType go autocmd BufWritePre <buffer> Fmt
 let g:jsx_ext_required = 0
 let g:jsx_pragma_required = 1
 
+" RE:VIEW
 let g:vim_review#include_filetypes = ['typescript', 'scss', 'javasript', 'json']
 
 let g:go_highlight_functions = 1
