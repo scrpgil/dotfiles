@@ -63,7 +63,6 @@ if dein#load_state('~/.cache/dein')
   call dein#add('kannokanno/previm')
   call dein#add('Quramy/tsuquyomi')
 
-
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
