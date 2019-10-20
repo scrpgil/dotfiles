@@ -161,7 +161,3 @@ let g:go_highlight_structs = 1
 
 " previm関連
 let g:previm_open_cmd = 'open -a  /Applications/Google\ Chrome.app'
-
-" tsuquyomi関連
-let g:tsuquyomi_completion_detail = 1
-autocmd FileType typescript setlocal completeopt+=menu,preview
