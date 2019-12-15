@@ -142,6 +142,7 @@ function! s:defx_my_settings() abort
 endfunction
 nnoremap <silent><C-e> :Defx -split=vertical -winwidth=40 -auto-cd -direction=topleft -toggle <CR>
 
+" emmet関連
 let g:user_emmet_leader_key='<c-l>'
 let g:user_emmet_expandabbr_key='<c-e>'
 
