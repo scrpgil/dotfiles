@@ -146,6 +146,7 @@ nnoremap <silent><C-e> :Defx -split=vertical -winwidth=40 -auto-cd -direction=to
 let g:user_emmet_leader_key='<c-l>'
 let g:user_emmet_expandabbr_key='<c-e>'
 
+" autocommand
 autocmd FileType json cnoremap jq :%!jq '.'
 set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
