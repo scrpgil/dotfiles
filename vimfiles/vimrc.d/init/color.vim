@@ -3,4 +3,4 @@ let g:hybrid_reduced_contrast = 1
 colorscheme hybrid
 
 " slim関連
-autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
+" autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
