@@ -13,14 +13,11 @@ set t_Co=256
 set incsearch
 set ignorecase
 set hlsearch
-set incsearch
-set ignorecase
 set ruler
 set guitablabel=\[%N\]\ %t\ %M
 set list
 set listchars=tab:>-,trail:_
 set rtp+=/usr/local/opt/fzf
-
 
 let mapleader = "p"
 imap <C-c> <esc>
@@ -40,13 +37,7 @@ set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,eucjp-jisx021
 if &compatible
   set nocompatible
 endif
-
-filetype plugin indent on
-
-autocmd FileType json cnoremap jq :%!jq '.'
-set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
-" let g:jsx_ext_required = 0
-" let g:jsx_pragma_required = 1
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
-
+" autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+autocmd ColorScheme * highlight NormalNC guifg=#a0a0a0 guibg=#121212
+autocmd WinEnter,BufWinEnter * setlocal wincolor=
+autocmd WinLeave * setlocal wincolor=NormalNC

@@ -1,36 +1,26 @@
 {
-    "suggest.noselect": true,
-    "suggest.preferCompleteThanJumpPlaceholder": true,
-    "languageserver": {
-        "clangd": {
-            "command": "clangd",
-            "args": ["--background-index"],
-            "rootPatterns": [
-                "compile_flags.txt",
-                "compile_commands.json",
-                ".vim/",
-                ".git/",
-                ".hg/"
-            ],
-            "filetypes": ["c", "cpp", "objc", "objcpp"]
-        },
-        "dockerfile": {
-            "command": "docker-langserver",
-            "filetypes": ["dockerfile"],
-            "args": ["--stdio"]
-        },
-        "golang": {
-            "command": "gopls",
-            "rootPatterns": ["go.mod"],
-            "disableWorkspaceFolders": true,
-            "filetypes": ["go"]
-        },
-        "efm": {
-            "command": "efm-langserver",
-            "args": [],
-            // custom config path
-            // "args": ["-c", "/path/to/your/config.yaml"],
-            "filetypes": ["vim", "eruby", "markdown"]
-        }
+  "suggest.noselect": true,
+  "suggest.autoTrigger": "none",
+  "suggest.triggerAfterInsertEnter": false,
+  "suggest.preferCompleteThanJumpPlaceholder": true,
+  "languageserver": {
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
+    },
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "disableWorkspaceFolders": true,
+      "filetypes": ["go"]
+    },
+    "efm": {
+      "command": "efm-langserver",
+      "args": [],
+      "filetypes": ["vim", "eruby", "markdown"]
     }
+  },
+  "solargraph.useBundler": false,
+  "solargraph.commandPath": "/usr/local/bin/solargraph"
 }
