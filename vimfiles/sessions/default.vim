@@ -4,7 +4,6 @@ let s:cpo_save=&cpo
 set cpo&vim
 inoremap <silent> <expr> <Plug>(coc-snippets-expand-jump) coc#_insert_key('request', 'snippets-expand-jump', 1)
 inoremap <silent> <expr> <Plug>(coc-snippets-expand) coc#_insert_key('request', 'snippets-expand', 1)
-inoremap <silent> <Plug>CocRefresh =coc#_complete()
 inoremap <silent> <Plug>(fzf-maps-i) :call fzf#vim#maps('i', 0)
 inoremap <expr> <Plug>(fzf-complete-buffer-line) fzf#vim#complete#buffer_line()
 inoremap <expr> <Plug>(fzf-complete-line) fzf#vim#complete#line()
@@ -44,6 +43,7 @@ imap <C-L>; <Plug>(emmet-expand-word)
 inoremap <Plug>(emmet-expand-word) =emmet#util#closePopup()=emmet#expandAbbr(1,"")
 imap <C-E> <Plug>(emmet-expand-abbr)
 inoremap <Plug>(emmet-expand-abbr) =emmet#util#closePopup()=emmet#expandAbbr(0,"")
+inoremap <silent> <Plug>CocRefresh =coc#_complete()
 inoremap <C-L> <Right>
 inoremap <C-N> <Left>
 inoremap <C-K> <Up>
@@ -81,38 +81,6 @@ vmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
 nmap pp <Plug>(Prettier)
 vnoremap <silent> <Plug>(coc-snippets-select) :call coc#rpc#notify('doKeymap', ['snippets-select'])
-onoremap <silent> <Plug>(coc-funcobj-a) :call coc#rpc#request('selectFunction', [v:false, ''])
-onoremap <silent> <Plug>(coc-funcobj-i) :call coc#rpc#request('selectFunction', [v:true, ''])
-vnoremap <silent> <Plug>(coc-funcobj-a) :call coc#rpc#request('selectFunction', [v:false, visualmode()])
-vnoremap <silent> <Plug>(coc-funcobj-i) :call coc#rpc#request('selectFunction', [v:true, visualmode()])
-nnoremap <silent> <Plug>(coc-cursors-position) :call coc#rpc#request('cursorsSelect', [bufnr('%'), 'position', 'n'])
-nnoremap <silent> <Plug>(coc-cursors-word) :call coc#rpc#request('cursorsSelect', [bufnr('%'), 'word', 'n'])
-vnoremap <silent> <Plug>(coc-cursors-range) :call coc#rpc#request('cursorsSelect', [bufnr('%'), 'range', visualmode()])
-nnoremap <Plug>(coc-refactor) :call       CocActionAsync('refactor')
-nnoremap <Plug>(coc-command-repeat) :call       CocAction('repeatCommand')
-nnoremap <Plug>(coc-float-jump) :call       coc#util#float_jump()
-nnoremap <Plug>(coc-float-hide) :call       coc#util#float_hide()
-nnoremap <Plug>(coc-fix-current) :call       CocActionAsync('doQuickfix')
-nnoremap <Plug>(coc-openlink) :call       CocActionAsync('openLink')
-nnoremap <Plug>(coc-references) :call       CocAction('jumpReferences')
-nnoremap <Plug>(coc-type-definition) :call       CocAction('jumpTypeDefinition')
-nnoremap <Plug>(coc-implementation) :call       CocAction('jumpImplementation')
-nnoremap <Plug>(coc-declaration) :call       CocAction('jumpDeclaration')
-nnoremap <Plug>(coc-definition) :call       CocAction('jumpDefinition')
-nnoremap <Plug>(coc-diagnostic-prev-error) :call       CocActionAsync('diagnosticPrevious', 'error')
-nnoremap <Plug>(coc-diagnostic-next-error) :call       CocActionAsync('diagnosticNext',     'error')
-nnoremap <Plug>(coc-diagnostic-prev) :call       CocActionAsync('diagnosticPrevious')
-nnoremap <Plug>(coc-diagnostic-next) :call       CocActionAsync('diagnosticNext')
-nnoremap <Plug>(coc-diagnostic-info) :call       CocActionAsync('diagnosticInfo')
-nnoremap <Plug>(coc-format) :call       CocActionAsync('format')
-nnoremap <Plug>(coc-rename) :call       CocActionAsync('rename')
-nnoremap <Plug>(coc-codeaction) :call       CocActionAsync('codeAction',         '')
-vnoremap <Plug>(coc-codeaction-selected) :call       CocActionAsync('codeAction',         visualmode())
-vnoremap <Plug>(coc-format-selected) :call       CocActionAsync('formatSelected',     visualmode())
-nnoremap <Plug>(coc-codelens-action) :call       CocActionAsync('codeLensAction')
-nnoremap <Plug>(coc-range-select) :call       CocAction('rangeSelect',     '', v:true)
-vnoremap <Plug>(coc-range-select-backward) :call       CocAction('rangeSelect',     visualmode(), v:false)
-vnoremap <Plug>(coc-range-select) :call       CocAction('rangeSelect',     visualmode(), v:true)
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())
 nnoremap <silent> <Plug>(PrettierCliPath) :PrettierCliPath
@@ -165,6 +133,38 @@ nnoremap <Plug>(emmet-expand-word) :call emmet#expandAbbr(1,"")
 vmap <C-E> <Plug>(emmet-expand-abbr)
 vnoremap <Plug>(emmet-expand-abbr) :call emmet#expandAbbr(2,"")
 nnoremap <Plug>(emmet-expand-abbr) :call emmet#expandAbbr(3,"")
+onoremap <silent> <Plug>(coc-funcobj-a) :call coc#rpc#request('selectFunction', [v:false, ''])
+onoremap <silent> <Plug>(coc-funcobj-i) :call coc#rpc#request('selectFunction', [v:true, ''])
+vnoremap <silent> <Plug>(coc-funcobj-a) :call coc#rpc#request('selectFunction', [v:false, visualmode()])
+vnoremap <silent> <Plug>(coc-funcobj-i) :call coc#rpc#request('selectFunction', [v:true, visualmode()])
+nnoremap <silent> <Plug>(coc-cursors-position) :call coc#rpc#request('cursorsSelect', [bufnr('%'), 'position', 'n'])
+nnoremap <silent> <Plug>(coc-cursors-word) :call coc#rpc#request('cursorsSelect', [bufnr('%'), 'word', 'n'])
+vnoremap <silent> <Plug>(coc-cursors-range) :call coc#rpc#request('cursorsSelect', [bufnr('%'), 'range', visualmode()])
+nnoremap <Plug>(coc-refactor) :call       CocActionAsync('refactor')
+nnoremap <Plug>(coc-command-repeat) :call       CocAction('repeatCommand')
+nnoremap <Plug>(coc-float-jump) :call       coc#util#float_jump()
+nnoremap <Plug>(coc-float-hide) :call       coc#util#float_hide()
+nnoremap <Plug>(coc-fix-current) :call       CocActionAsync('doQuickfix')
+nnoremap <Plug>(coc-openlink) :call       CocActionAsync('openLink')
+nnoremap <Plug>(coc-references) :call       CocAction('jumpReferences')
+nnoremap <Plug>(coc-type-definition) :call       CocAction('jumpTypeDefinition')
+nnoremap <Plug>(coc-implementation) :call       CocAction('jumpImplementation')
+nnoremap <Plug>(coc-declaration) :call       CocAction('jumpDeclaration')
+nnoremap <Plug>(coc-definition) :call       CocAction('jumpDefinition')
+nnoremap <Plug>(coc-diagnostic-prev-error) :call       CocActionAsync('diagnosticPrevious', 'error')
+nnoremap <Plug>(coc-diagnostic-next-error) :call       CocActionAsync('diagnosticNext',     'error')
+nnoremap <Plug>(coc-diagnostic-prev) :call       CocActionAsync('diagnosticPrevious')
+nnoremap <Plug>(coc-diagnostic-next) :call       CocActionAsync('diagnosticNext')
+nnoremap <Plug>(coc-diagnostic-info) :call       CocActionAsync('diagnosticInfo')
+nnoremap <Plug>(coc-format) :call       CocActionAsync('format')
+nnoremap <Plug>(coc-rename) :call       CocActionAsync('rename')
+nnoremap <Plug>(coc-codeaction) :call       CocActionAsync('codeAction',         '')
+vnoremap <Plug>(coc-codeaction-selected) :call       CocActionAsync('codeAction',         visualmode())
+vnoremap <Plug>(coc-format-selected) :call       CocActionAsync('formatSelected',     visualmode())
+nnoremap <Plug>(coc-codelens-action) :call       CocActionAsync('codeLensAction')
+nnoremap <Plug>(coc-range-select) :call       CocAction('rangeSelect',     '', v:true)
+vnoremap <Plug>(coc-range-select-backward) :call       CocAction('rangeSelect',     visualmode(), v:false)
+vnoremap <Plug>(coc-range-select) :call       CocAction('rangeSelect',     visualmode(), v:true)
 nnoremap <silent> <C-H> :History
 nnoremap <silent> <C-G> :GFiles
 nnoremap <silent> <C-E> :Defx -listed -resume -toggle -buffer-name=tab`tabpagenr()` -split=vertical -winwidth=40  :set nu 
@@ -212,7 +212,7 @@ set incsearch
 set laststatus=2
 set listchars=tab:>-,trail:_
 set ruler
-set runtimepath=~/.vim,~/.vim/pack/coc/start/coc.nvim-release,/usr/local/share/vim/vimfiles,~/.cache/dein/.cache/.vimrc/.dein,/usr/local/share/vim/vim81,~/.cache/dein/.cache/.vimrc/.dein/after,/usr/local/share/vim/vimfiles/after,~/.vim/after,/usr/local/opt/fzf,~/.cache/dein/repos/github.com/Shougo/dein.vim,~/workspace/go/src/github.com/golang/lint/misc/vim,~/.config/coc/extensions/node_modules/coc-snippets
+set runtimepath=~/.vim,~/.vim/pack/coc/start/coc.nvim-release,/usr/local/share/vim/vimfiles,~/.cache/dein/repos/github.com/junegunn/fzf,~/.cache/dein/repos/github.com/neoclide/coc.nvim_release,~/.cache/dein/repos/github.com/Shougo/dein.vim,~/.cache/dein/.cache/.vimrc/.dein,/usr/local/share/vim/vim81,~/.cache/dein/.cache/.vimrc/.dein/after,/usr/local/share/vim/vimfiles/after,~/.vim/after,/usr/local/opt/fzf,~/workspace/go/src/github.com/golang/lint/misc/vim,~/.config/coc/extensions/node_modules/coc-snippets
 set shiftwidth=2
 set shortmess=filnxtToOSc
 set smartindent
@@ -231,8 +231,7 @@ endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd vimfiles/.netrwhist
-edit vimfiles/.netrwhist
+edit ~/dotfiles/vimfiles/syntax/mlt.vim
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -242,6 +241,18 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 argglobal
+vnoremap <buffer> <silent> [" :exe "normal! gv"|call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
+nnoremap <buffer> <silent> [" :call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
+vnoremap <buffer> <silent> [] m':exe "normal! gv"|call search('^\s*endf\%[unction]\>', "bW")
+nnoremap <buffer> <silent> [] m':call search('^\s*endf\%[unction]\>', "bW")
+vnoremap <buffer> <silent> [[ m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "bW")
+nnoremap <buffer> <silent> [[ m':call search('^\s*fu\%[nction]\>', "bW")
+vnoremap <buffer> <silent> ]" :exe "normal! gv"|call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
+nnoremap <buffer> <silent> ]" :call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
+vnoremap <buffer> <silent> ][ m':exe "normal! gv"|call search('^\s*endf\%[unction]\>', "W")
+nnoremap <buffer> <silent> ][ m':call search('^\s*endf\%[unction]\>', "W")
+vnoremap <buffer> <silent> ]] m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "W")
+nnoremap <buffer> <silent> ]] m':call search('^\s*fu\%[nction]\>', "W")
 setlocal keymap=
 setlocal noarabic
 setlocal autoindent
@@ -258,8 +269,8 @@ setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
-setlocal commentstring=/*%s*/
+setlocal comments=sO:\"\ -,mO:\"\ \ ,eO:\"\",:\"
+setlocal commentstring=\"%s
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -276,8 +287,8 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal expandtab
-if &filetype != ''
-setlocal filetype=
+if &filetype != 'vim'
+setlocal filetype=vim
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
@@ -293,7 +304,7 @@ setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
 setlocal formatexpr=
-setlocal formatoptions=tcq
+setlocal formatoptions=croql
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal formatprg=
 setlocal grepprg=
@@ -301,11 +312,11 @@ setlocal iminsert=0
 setlocal imsearch=-1
 setlocal include=
 setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
+setlocal indentexpr=GetVimIndent()
+setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e,=end,=else,=cat,=fina,=END,0\\,0=\"\\\ 
 setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
+setlocal iskeyword=@,48-57,_,192-255,#
+setlocal keywordprg=:help
 setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
@@ -346,8 +357,8 @@ setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != ''
-setlocal syntax=
+if &syntax != 'vim'
+setlocal syntax=vim
 endif
 setlocal tabstop=2
 setlocal tagcase=
@@ -356,7 +367,7 @@ setlocal tags=
 setlocal termwinkey=
 setlocal termwinscroll=10000
 setlocal termwinsize=
-setlocal textwidth=0
+setlocal textwidth=78
 setlocal thesaurus=
 setlocal noundofile
 setlocal undolevels=-123456
@@ -367,14 +378,20 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 1 - ((0 * winheight(0) + 19) / 38)
+let s:l = 7 - ((6 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+7
+normal! 026|
 tabnext 1
-badd +0 vimfiles/.netrwhist
+badd +4 ~/dotfiles/vimfiles/syntax/mltx.vim
+badd +3 \[defx]\ tab1-0
+badd +0 ~/dotfiles/vimfiles/syntax/mlt.vim
+badd +5 \[defx]\ tab2-1
+badd +3 ~/dotfiles/vimfiles/vimrc.d/init/plugins.vim
+badd +1 ~/dotfiles/vimfiles/pack/coc/start/coc.nvim-release/plugin/coc.vim
+badd +1 ~/dotfiles/vimfiles/vimrc.d/syntax/mlt.vim
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
@@ -386,7 +403,6 @@ if file_readable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &so = s:so_save | let &siso = s:siso_save
-nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :
